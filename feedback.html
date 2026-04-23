@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact AutomationHub - send feedback or enquiries">
+  <title>AutomationHub | Feedback</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="nav-logo">
+        <a href="index.html">AutomationHub</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="plc.html">PLC &amp; Automation</a></li>
+        <li><a href="instrumentation.html">Instrumentation</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="feedback.html" class="active">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="page-banner">
+      <h1>Feedback &amp; Enquiries</h1>
+      <p>Get in touch with the AutomationHub team.</p>
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &rsaquo; Feedback
+      </nav>
+    </section>
+
+    <section id="contact-form">
+      <h2>Send Us a Message</h2>
+      <form id="feedbackForm" novalidate>
+
+        <div class="form-group">
+          <label for="fullName">Full Name <span class="required">*</span></label>
+          <input 
+            type="text" 
+            id="fullName" 
+            name="fullName" 
+            placeholder="Enter your full name"
+            minlength="2"
+            maxlength="100"
+            required>
+          <span class="error-msg" id="nameError">Please enter your full name.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address <span class="required">*</span></label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="Enter your email address"
+            required>
+          <span class="error-msg" id="emailError">Please enter a valid email address.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="occupation">Role / Occupation <span class="required">*</span></label>
+          <input 
+            type="text" 
+            id="occupation" 
+            name="occupation" 
+            placeholder="e.g. Engineering Student, Plant Manager"
+            required>
+          <span class="error-msg" id="occupationError">Please enter your role or occupation.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="topic">Topic of Interest <span class="required">*</span></label>
+          <select id="topic" name="topic" required>
+            <option value="">Select a topic...</option>
+            <option value="plc">PLC &amp; Automation</option>
+            <option value="instrumentation">Industrial Instrumentation</option>
+            <option value="predictive-maintenance">Predictive Maintenance</option>
+            <option value="scada">SCADA Systems</option>
+            <option value="iot">IIoT &amp; Industry 4.0</option>
+            <option value="other">Other</option>
+          </select>
+          <span class="error-msg" id="topicError">Please select a topic of interest.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message <span class="required">*</span></label>
+          <textarea 
+            id="message" 
+            name="message" 
+            rows="5"
+            placeholder="Write your message here..."
+            minlength="10"
+            maxlength="1000"
+            required></textarea>
+          <span class="error-msg" id="messageError">Please enter a message of at least 10 characters.</span>
+        </div>
+
+        <p class="form-note">All fields marked <span class="required">*</span> are required.</p>
+
+        <button type="submit" class="btn-primary">Send Message</button>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 AutomationHub. All rights reserved.</p>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="plc.html">PLC &amp; Automation</a> |
+      <a href="instrumentation.html">Instrumentation</a> |
+      <a href="projects.html">Projects</a> |
+      <a href="feedback.html">Feedback</a>
+    </nav>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
