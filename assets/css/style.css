@@ -33,6 +33,63 @@
   --transition: 0.2s ease;
   --shadow:     0 4px 24px rgba(0,0,0,0.4);
 }
+/* ── LIGHT MODE VARIABLES ── */
+[data-theme="light"] {
+  --bg:         #f5f7fa;
+  --surface:    #ffffff;
+  --card:       #eef1f5;
+  --card-hover: #e4e8ef;
+  --border:     #d0d7de;
+  --border-2:   #b8c0cc;
+  --accent:     #d4890a;
+  --accent-2:   #b8750a;
+  --accent-dim: rgba(212,137,10,0.1);
+  --blue-light: #0969da;
+  --green:      #1a7f37;
+  --red:        #cf222e;
+  --text:       #0d1117;
+  --text-2:     #24292f;
+  --muted:      #57606a;
+}
+
+/* Hero image needs more brightness in light mode */
+[data-theme="light"] .hero-img {
+  filter: brightness(0.45) saturate(0.6);
+}
+
+/* Navbar needs solid background in light mode */
+[data-theme="light"] header {
+  background: rgba(255,255,255,0.95);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  cursor: pointer;
+  padding: .35rem .6rem;
+  font-size: .95rem;
+  line-height: 1;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.theme-toggle .toggle-label {
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
 
 /* ── RESET & BASE ── */
 *, *::before, *::after {
