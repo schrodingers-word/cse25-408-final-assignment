@@ -1132,3 +1132,17 @@ footer {
   }
   .social-icons { flex-wrap: wrap; }
 }
+/* Clickable image hover effect */
+a img {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+a:hover img {
+  opacity: 0.88;
+  transform: scale(1.01);
+}
+figcaption a {
+  color: var(--blue-light);
+  font-size: .72rem;
+  font-family: var(--font-mono);
+}
+figcaption a:hover { color: var(--accent); }
