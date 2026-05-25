@@ -27,8 +27,10 @@ function initMobileNav() {
 // ── ACTIVE NAV LINK ────────────────────────────────────────────
 function setActiveNavLink() {
   const current = window.location.pathname.split('/').pop() || 'index.html';
+
   document.querySelectorAll('.navlinks a').forEach(link => {
     const href = link.getAttribute('href');
+
     if (href === current) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
@@ -49,6 +51,7 @@ function initScrollReveal() {
   // Add reveal class to all target elements
   elements.forEach((el, i) => {
     el.classList.add('reveal');
+
     // Stagger siblings in a grid
     const delay = (i % 3) * 100;
     el.style.transitionDelay = delay + 'ms';
@@ -61,7 +64,10 @@ function initScrollReveal() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
  
   elements.forEach(el => observer.observe(el));
 }
@@ -70,12 +76,15 @@ function initScrollReveal() {
 function initCharCounter() {
   const textarea = document.getElementById('message');
   const counter  = document.getElementById('messageCount');
+
   if (!textarea || !counter) return;
  
   textarea.addEventListener('input', () => {
     const len = textarea.value.length;
     const max = parseInt(textarea.getAttribute('maxlength')) || 1000;
+
     counter.textContent = `${len} / ${max} characters`;
+
     counter.style.color = len > max * 0.9
       ? 'var(--red)'
       : 'var(--muted)';
@@ -85,6 +94,7 @@ function initCharCounter() {
 // ── FORM VALIDATION ────────────────────────────────────────────
 function initFeedbackForm() {
   const form = document.getElementById('feedbackForm');
+
   if (!form) return;
  
   const fields = [
@@ -123,8 +133,10 @@ function initFeedbackForm() {
   function clearErrors() {
     fields.forEach(({ input, error }) => {
       if (!input || !error) return;
+
       error.textContent = '';
       error.hidden = true;
+
       input.classList.remove('input-error');
       input.removeAttribute('aria-invalid');
     });
@@ -132,26 +144,35 @@ function initFeedbackForm() {
  
   function validateField({ input, error, validate, message }) {
     if (!input || !error) return true;
+
     const isValid = validate(input.value);
+
     if (!isValid) {
       error.textContent = message;
       error.hidden = false;
+
       input.classList.add('input-error');
       input.setAttribute('aria-invalid', 'true');
     }
+
     return isValid;
   }
  
   // Inline validation on blur
   fields.forEach(field => {
     if (!field.input) return;
+
     field.input.addEventListener('blur', () => {
-      if (field.input.value !== '') validateField(field);
+      if (field.input.value !== '') {
+        validateField(field);
+      }
     });
+
     // Clear error when user starts typing again
     field.input.addEventListener('input', () => {
       if (field.error) {
         field.error.hidden = true;
+
         field.input.classList.remove('input-error');
         field.input.removeAttribute('aria-invalid');
       }
@@ -160,6 +181,7 @@ function initFeedbackForm() {
  
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+
     clearErrors();
  
     const results = fields.map(validateField);
@@ -167,21 +189,95 @@ function initFeedbackForm() {
  
     if (allValid) {
       const successRegion = document.getElementById('formSuccess');
+
       if (successRegion) {
         successRegion.hidden = false;
         successRegion.focus();
-        successRegion.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        successRegion.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
       }
+
       form.reset();
+
       // Reset char counter
       const counter = document.getElementById('messageCount');
-      if (counter) counter.textContent = '0 / 1000 characters';
+
+      if (counter) {
+        counter.textContent = '0 / 1000 characters';
+      }
+
     } else {
       // Focus first invalid field
       const firstInvalid = fields.find(
-        ({ input }) => input && input.getAttribute('aria-invalid') === 'true'
+        ({ input }) =>
+          input &&
+          input.getAttribute('aria-invalid') === 'true'
       );
-      if (firstInvalid) firstInvalid.input.focus();
+
+      if (firstInvalid) {
+        firstInvalid.input.focus();
+      }
+    }
+  });
+}
+ 
+// ── THEME TOGGLE ──────────────────────────────────────────────
+function initThemeToggle() {
+  const toggle = document.getElementById('themeToggle');
+  const icon   = document.getElementById('themeIcon');
+  const label  = document.getElementById('themeLabel');
+
+  if (!toggle) return;
+
+  // Check saved theme
+  const saved = localStorage.getItem('automationhub-theme');
+
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+
+    icon.textContent  = '🌙';
+    label.textContent = 'Dark';
+
+    toggle.setAttribute(
+      'aria-label',
+      'Switch to dark mode'
+    );
+  }
+
+  toggle.addEventListener('click', () => {
+    const isLight =
+      document.documentElement.getAttribute('data-theme') === 'light';
+
+    if (isLight) {
+      // Switch to dark
+      document.documentElement.removeAttribute('data-theme');
+
+      icon.textContent  = '☀️';
+      label.textContent = 'Light';
+
+      toggle.setAttribute(
+        'aria-label',
+        'Switch to light mode'
+      );
+
+      localStorage.setItem('automationhub-theme', 'dark');
+
+    } else {
+      // Switch to light
+      document.documentElement.setAttribute('data-theme', 'light');
+
+      icon.textContent  = '🌙';
+      label.textContent = 'Dark';
+
+      toggle.setAttribute(
+        'aria-label',
+        'Switch to dark mode'
+      );
+
+      localStorage.setItem('automationhub-theme', 'light');
     }
   });
 }
@@ -189,7 +285,10 @@ function initFeedbackForm() {
 // ── CURRENT YEAR IN FOOTER ────────────────────────────────────
 function setFooterYear() {
   const yearEl = document.getElementById('footer-year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 }
  
 // ── INIT ALL ──────────────────────────────────────────────────
@@ -200,4 +299,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCharCounter();
   initFeedbackForm();
   setFooterYear();
+  initThemeToggle();
 });
