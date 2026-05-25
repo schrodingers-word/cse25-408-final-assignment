@@ -11,18 +11,33 @@
 <body>
 
   <header>
-    <nav>
-      <div class="navlogo">
-        <a href="index.html">AutomationHub</a>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="plc.html">PLC &amp; Automation</a></li>
-        <li><a href="instrumentation.html" class="active">Instrumentation</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="feedback.html">Feedback</a></li>
-      </ul>
-    </nav>
+   <nav>
+  <div class="navlogo">
+    <a href="index.html">AutomationHub</a>
+  </div>
+  
+  <button class="nav-toggle" aria-expanded="false"
+          aria-controls="navlinks" aria-label="Toggle navigation menu">
+    <span></span><span></span><span></span>
+  </button>
+  
+  <ul class="navlinks" id="navlinks" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="plc.html">PLC &amp; Automation</a></li>
+    <li><a href="instrumentation.html" class="active">Instrumentation</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="feedback.html">Feedback</a></li>
+  </ul>
+
+  <button class="theme-toggle"
+          id="themeToggle"
+          aria-label="Switch to light mode"
+          title="Toggle light/dark mode">
+    <span id="themeIcon">☀️</span>
+    <span class="toggle-label" id="themeLabel">Light</span>
+  </button>
+</nav>
+
   </header>
 
   <main>
