@@ -1,8 +1,4 @@
-/* ═══════════════════════════════════════════════════════════════
-   AutomationHub — styles.css
-   Theme: Industrial Dark | Amber Accent
-   Fonts: Rajdhani (headings) + IBM Plex Sans (body) + IBM Plex Mono (labels)
-═══════════════════════════════════════════════════════════════ */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 body {
@@ -146,9 +142,9 @@ ul { list-style: none; }
 }
 .skip-link:focus { top: 0; }
 
-/* ═══════════════════════════════════════
+/* 
    NAVBAR
-═══════════════════════════════════════ */
+ */
 header {
   position: sticky;
   top: 0;
@@ -235,9 +231,9 @@ nav {
   transition: all var(--transition);
 }
 
-/* ═══════════════════════════════════════
+/* 
    HERO SECTION
-═══════════════════════════════════════ */
+*/
 #hero {
   position: relative;
   overflow: hidden;
