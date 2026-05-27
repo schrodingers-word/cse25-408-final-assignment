@@ -1,9 +1,6 @@
-/* ═══════════════════════════════════════════════════════════════
-   AutomationHub — main.js
-   Modules: Nav, Form Validation, Scroll Reveal, Char Counter
-═══════════════════════════════════════════════════════════════ */
+
  
-// ── MOBILE NAV ─────────────────────────────────────────────────
+// ── MOBILE NAV 
 function initMobileNav() {
   const toggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.navlinks');
@@ -91,7 +88,7 @@ function initCharCounter() {
   });
 }
  
-// ── FORM VALIDATION ────────────────────────────────────────────
+// ── FORM VALIDATION 
 function initFeedbackForm() {
   const form = document.getElementById('feedbackForm');
 
